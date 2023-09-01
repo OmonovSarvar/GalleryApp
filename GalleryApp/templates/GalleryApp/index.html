@@ -1,0 +1,21 @@
+{% extends 'GalleryApp/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block heading %}
+    <title>Gallery</title>
+{% endblock heading %}
+{% block content %}
+    <h1 class="textone">Gallery</h1>
+    
+    {% csrf_token %}
+    {% for i in form %}
+        <div class="post">
+            <img class="image" src="{{ i.img.url }}" alt="Rasm">
+            <h1 class="image_name" >{{ i.title }}</h1>
+            <h3 class="image_author" >{{ i.author }}</h3>
+            <h4 class="image_date" >{{ i.img_date }}</h4>
+        </div>
+        
+
+    {% endfor %}
+{% endblock content %}
